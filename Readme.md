@@ -2,48 +2,82 @@
 
 Welcome to our hands-on workshop where you'll dive into the MERN stack — MongoDB, Express.js, React, and Node.js. Join us as we guide you through the process of creating a powerful and dynamic web application from the ground up. Get ready to explore the fundamentals of each technology and learn how they seamlessly integrate to bring your ideas to life!
 
+## MongoDB Setup
 
-Install mongodb :
-sudo apt install -y software-properties-common gnupg apt-transport-https ca-certificates
-sudo apt install -y mongodb
+1. **Install MongoDB:**
+   - Run the following commands to install MongoDB on Ubuntu:
+     ```bash
+     sudo apt install -y software-properties-common gnupg apt-transport-https ca-certificates
+     sudo apt install -y mongodb
+     ```
 
-Start mongo db serv:
-cd mongoDB
-mkdir /data/db
-mongod
+2. **Start MongoDB Server:**
+   - Create a directory for MongoDB data:
+     ```bash
+     cd ~
+     mkdir /data/db
+     ```
+   - Start the MongoDB server:
+     ```bash
+     mongod
+     ```
 
-Connect to the serv :
-New terminal and mongo
+3. **Connect to MongoDB Server:**
+   - Open a new terminal and connect to the MongoDB server:
+     ```bash
+     mongo
+     ```
 
-Create new database :
-use mydatabase
+4. **Create a New Database:**
+   - In the MongoDB shell, create a new database (e.g., "mydatabase"):
+     ```bash
+     use mydatabase
+     ```
 
-Insert data: 
-Create a data.json and fill it :
-exemple:
-[
-  { "name": "Alice", "age": 28, "email": "alice@example.com" },
-  { "name": "Bob", "age": 32, "email": "bob@example.com" },
-  { "name": "Charlie", "age": 25, "email": "charlie@example.com" }
-]
+5. **Insert Data:**
+   - Create a `data.json` file with sample data.
+     ```json
+     [
+       { "name": "Alice", "age": 28, "email": "alice@example.com" },
+       { "name": "Bob", "age": 32, "email": "bob@example.com" },
+       { "name": "Charlie", "age": 25, "email": "charlie@example.com" }
+     ]
+     ```
+   - Use `mongoimport` to insert data into the MongoDB database:
+     ```bash
+     mongoimport --db mydatabase --collection users --file data.json --jsonArray
+     ```
 
-Open terminal and navigate to the dir where the .json is located
-mongoimport --db mydatabase --collection users --file data.json --jsonArray
-mydatabase: The name of your MongoDB database.
-users: The name of the collection where you want to insert the data.
-data.json: The path to your data file.
---jsonArray: Specifies that the input file is a JSON array.
+6. **Check if Data is Inserted:**
+   - In the MongoDB shell:
+     ```bash
+     use mydatabase
+     db.users.find()
+     ```
 
-Check if data is inserted:
-mongo
-use mydatabase
-db.users.find()
+## Express Setup
 
+1. **Install Dependencies:**
+   - Go to your Express project directory.
+   - Install necessary dependencies:
+     ```bash
+     npm install mongoose express ejs
+     ```
 
-connect to express:
-go to an Express dir
-npm install mongoose (connect to mydatabase)
-npm install express (create app)
-npm install ejs (html template to visualise mydatabase)
-create app.js
-check how to use mongoose, express and ejs
+2. **Create `app.js`:**
+   - Create an `app.js` file in your Express project.
+   - Set up Mongoose, Express, and EJS in your `app.js` file.
+
+3. **Create views/index.ejs:**
+
+    - Inside your project, create a "views" directory.
+    - Create an index.ejs file in the "views" directory with the HTML template.
+
+## Run the Express App
+
+- Start your Express server:
+
+    - bash
+    - Copy code
+    - node app.js
+    - Visit http://localhost:3000 in your browser to see the rendered MongoDB data.
