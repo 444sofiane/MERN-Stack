@@ -1,0 +1,22 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MongoDB Data</title>
+</head>
+<body>
+  <h1>MongoDB Data</h1>
+  <ul>
+    <% users.forEach(user => { %>
+      <li>
+        <strong>Name:</strong> <%= user.name %>, 
+        <strong>Age:</strong> <%= user.age %>, 
+        <strong>Email:</strong> <%= user.email %>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
