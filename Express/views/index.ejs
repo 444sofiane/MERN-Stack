@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MongoDB Data</title>
+  <title>MongoDB and Weather Data</title>
 </head>
 <body>
-  <h1>MongoDB Data</h1>
+  <h1>MongoDB and Weather Data</h1>
+  <h2>Users:</h2>
   <ul>
     <% users.forEach(user => { %>
       <li>
@@ -18,5 +19,13 @@
       </li>
     <% }); %>
   </ul>
+
+  <h2>Weather Data:</h2>
+  <% if (result) { %>
+    <p><strong>Temperature:</strong> <%= result.current.temp_c %></p>
+    <p><strong>Condition:</strong> <%= result.current.condition.text %></p>
+  <% } else { %>
+    <p>No weather data available</p>
+  <% } %>
 </body>
 </html>
