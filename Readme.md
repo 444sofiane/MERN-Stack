@@ -61,7 +61,7 @@ Welcome to our hands-on workshop where you'll dive into the MERN stack — Mongo
    - Go to your Express project directory.
    - Install necessary dependencies:
      ```bash
-     npm install mongoose express ejs
+     npm install mongoose express ejs axios
      ```
 
 2. **Create `app.js`:**
